@@ -7,6 +7,9 @@ import { app } from './app';
 // Greeter("test")
 
 const start = async () => {
+
+  console.log('auth service starting ...')
+
   if (!process.env.JWT_KEY) {
     throw new Error('JWT_KEY must be defined');
   }
