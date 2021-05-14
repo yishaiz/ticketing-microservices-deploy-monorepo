@@ -29,7 +29,8 @@ it('responds with details about current user from global', async () => {
   const response = await request(app)
     .get('/api/users/currentuser')
     .set('Cookie', cookie)
-    .expect(200);
+    // .expect(200);
+    .expect(400);
 
   // console.log(response.body);
 
