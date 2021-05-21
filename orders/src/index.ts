@@ -11,6 +11,7 @@ import { PaymentCreatedListener } from './events/listeners/payment-created-liste
 // Greeter("test")
 
 const start = async () => {
+  console.log('orders service starting ...')
   if (!process.env.JWT_KEY) {
     throw new Error('JWT_KEY must be defined');
   }

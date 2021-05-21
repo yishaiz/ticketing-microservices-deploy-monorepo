@@ -23,18 +23,19 @@ it('responsd with details about current user', async () => {
   expect(response.body.currentUser.email).toEqual('test@test.com');
 });
 
-it('responds with details about current user from global', async () => {
-  const cookie = await global.signin();
-  // console.log({cookie})
-  const response = await request(app)
-    .get('/api/users/currentuser')
-    .set('Cookie', cookie)
-    .expect(200);
+  it('responds with details about current user from global', async () => {
+    const cookie = await global.signin();
+    // console.log({cookie})
+    const response = await request(app)
+      .get('/api/users/currentuser')
+      .set('Cookie', cookie)
+      .expect(200);
+      // .expect(400);
 
-  // console.log(response.body);
+    // console.log(response.body);
 
-  expect(response.body.currentUser.email).toEqual('test@test.com');
-});
+    expect(response.body.currentUser.email).toEqual('test@test.com');
+  });
 
 it('responds with null if not authenticated', async () => {
   const response = await request(app).get('/api/users/currentuser').expect(200);
